@@ -1,20 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 export default function SectionDivider() {
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [streakKey, setStreakKey] = useState(0);
+  const [streakDir, setStreakDir] = useState(null); // 'down' | 'up'
   const dividerRef = useRef(null);
+  const lastScrollY = useRef(0);
+  const isIntersectingRef = useRef(false);
 
   useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        const currentY = window.scrollY;
+        const isScrollingDown = currentY >= lastScrollY.current;
+        lastScrollY.current = currentY;
+
+        if (entry.isIntersecting && !isIntersectingRef.current) {
+          isIntersectingRef.current = true;
+          setStreakDir(isScrollingDown ? 'down' : 'up');
+          setStreakKey((prev) => prev + 1);
+        } else if (!entry.isIntersecting) {
+          isIntersectingRef.current = false;
         }
       },
       {
         threshold: 0,
-        rootMargin: '-30% 0px -30% 0px' // Triggers strictly when scrolling into the middle region of the section
+        rootMargin: '-25% 0px -25% 0px'
       }
     );
 
@@ -22,17 +35,18 @@ export default function SectionDivider() {
       observer.observe(dividerRef.current);
     }
 
-    return () => {
-      if (dividerRef.current) {
-        observer.unobserve(dividerRef.current);
-      }
-    };
-  }, [hasAnimated]);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="section-divider-container" ref={dividerRef}>
       <div className="section-divider-line" />
-      <div className={`section-divider-streak ${hasAnimated ? 'animated' : ''}`} />
+      {streakDir && (
+        <div 
+          key={streakKey}
+          className={`section-divider-streak animated-${streakDir}`} 
+        />
+      )}
     </div>
   );
 }

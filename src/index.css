@@ -543,11 +543,15 @@ button {
   opacity: 0;
 }
 
-.section-divider-streak.animated {
-  animation: lightStreakSweep 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 1 forwards;
+.section-divider-streak.animated-down {
+  animation: lightStreakSweepRight 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 1 forwards;
 }
 
-@keyframes lightStreakSweep {
+.section-divider-streak.animated-up {
+  animation: lightStreakSweepLeft 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 1 forwards;
+}
+
+@keyframes lightStreakSweepRight {
   0% {
     left: -35%;
     opacity: 0;
@@ -564,155 +568,119 @@ button {
   }
 }
 
-@keyframes heroEntrance {
+@keyframes lightStreakSweepLeft {
   0% {
+    left: 110%;
     opacity: 0;
-    transform: scale(0.96) translateY(24px);
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
   }
   100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+    left: -35%;
+    opacity: 0;
   }
 }
 
-.hero-badge-overlay {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 1.25rem 1.75rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.hero-badge-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--bg-dark);
-  color: #FFFFFF;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-badge-title {
-  font-family: var(--font-title);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.hero-badge-desc {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* Service Pillars Section */
-.pillars-section {
-  background-color: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.section-header {
-  margin-bottom: 3.5rem;
-}
-
-.section-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-top: 0.75rem;
-  color: var(--text-main);
-}
-
-.section-subtitle {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  max-width: 620px;
-  margin-top: 0.5rem;
-}
-
-.pillars-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-}
-
-.pillar-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: var(--transition);
+/* Service Pillar Card Light Beam Wrapper */
+.pillar-card-beam-wrapper {
   position: relative;
+  border-radius: var(--radius-md);
+  padding: 3px;
   overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.pillar-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background-color: var(--accent-graphite);
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.pillar-card.accent-card::before {
-  background-color: var(--accent-terracotta);
-}
-
-.pillar-card:hover {
-  transform: translateY(-4px);
+.pillar-card-beam-wrapper:hover {
+  transform: translateY(-5px);
   box-shadow: var(--shadow-card);
 }
 
-.pillar-card:hover::before {
-  opacity: 1;
+.pillar-card-beam-wrapper.orange-beam::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 260deg,
+    var(--brand-orange) 310deg,
+    #FFA842 335deg,
+    transparent 360deg
+  );
+  animation: cardBeamRotate 3.2s ease-in-out 1 forwards;
+  z-index: 1;
 }
 
-.pillar-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 2rem;
+.pillar-card-beam-wrapper.cyan-beam::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 260deg,
+    var(--brand-cyan) 310deg,
+    #5CD6FF 335deg,
+    transparent 360deg
+  );
+  animation: cardBeamRotate 3.2s ease-in-out 1 forwards;
+  z-index: 1;
 }
 
-.pillar-icon-box {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-sm);
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-main);
+.pillar-card-beam-wrapper .pillar-card {
+  position: relative;
+  z-index: 2;
+  border-radius: calc(var(--radius-md) - 2px);
+  height: 100%;
 }
 
-.pillar-card.accent-card .pillar-icon-box {
-  background-color: rgba(200, 109, 81, 0.1);
-  color: var(--accent-terracotta);
-  border-color: rgba(200, 109, 81, 0.2);
+@keyframes cardBeamRotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
 }
 
+/* Pillar Card Hover Illuminated Numbers */
 .pillar-number {
   font-family: var(--font-title);
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.15);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.12);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar-card-beam-wrapper.orange-beam:hover .pillar-number-01,
+.pillar-card:hover .pillar-number-01 {
+  color: var(--brand-orange) !important;
+  text-shadow: 0 0 20px rgba(238, 116, 39, 0.6), 0 0 35px rgba(238, 116, 39, 0.3);
+  transform: scale(1.12);
+}
+
+.pillar-card-beam-wrapper.cyan-beam:hover .pillar-number-02,
+.pillar-card:hover .pillar-number-02 {
+  color: var(--brand-cyan) !important;
+  text-shadow: 0 0 20px rgba(40, 165, 214, 0.6), 0 0 35px rgba(40, 165, 214, 0.3);
+  transform: scale(1.12);
 }
 
 .pillar-title {
