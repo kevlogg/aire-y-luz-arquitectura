@@ -1243,14 +1243,14 @@ button {
 
 /* Responsive Queries */
 @media (max-width: 1024px) {
-  .hero-grid {
+  .hero-grid, .spoke-hero-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .pillars-grid {
+  .pillars-grid, .pillars-grid-3, .how-work-grid {
     grid-template-columns: 1fr;
   }
   .contact-grid {
@@ -1265,8 +1265,18 @@ button {
   .nav-links {
     display: none;
   }
+  .mobile-toggle-btn {
+    display: flex;
+  }
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
+  }
+  .spoke-hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-trust-bar {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   .portfolio-grid {
     grid-template-columns: 1fr;

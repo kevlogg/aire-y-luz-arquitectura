@@ -1,57 +1,46 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ServicePillars from './components/ServicePillars';
-import ProjectsGallery from './components/ProjectsGallery';
-import QuoteEstimatorModal from './components/QuoteEstimatorModal';
-import FaqSection from './components/FaqSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import SectionDivider from './components/SectionDivider';
+import QuoteEstimatorModal from './components/QuoteEstimatorModal';
+
+import Home from './pages/Home';
+import RemodelacionesPage from './pages/RemodelacionesPage';
+import ConsorciosPage from './pages/ConsorciosPage';
+import LocalesPage from './pages/LocalesPage';
 
 export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
+  const handleOpenModal = () => setIsQuoteModalOpen(true);
+  const handleCloseModal = () => setIsQuoteModalOpen(false);
+
   return (
-    <div className="app-main-wrapper">
-      {/* Sticky Top Navbar */}
-      <Navbar onOpenQuoteModal={() => setIsQuoteModalOpen(true)} />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="app-main-wrapper">
+        {/* Sticky Top Navbar */}
+        <Navbar onOpenQuoteModal={handleOpenModal} />
 
-      {/* Hero Section */}
-      <Hero onOpenQuoteModal={() => setIsQuoteModalOpen(true)} />
+        {/* Dynamic Route Pages */}
+        <Routes>
+          <Route path="/" element={<Home onOpenQuoteModal={handleOpenModal} />} />
+          <Route path="/remodelaciones" element={<RemodelacionesPage onOpenQuoteModal={handleOpenModal} />} />
+          <Route path="/servicios-a-consorcios" element={<ConsorciosPage onOpenQuoteModal={handleOpenModal} />} />
+          <Route path="/locales-y-oficinas" element={<LocalesPage onOpenQuoteModal={handleOpenModal} />} />
+          <Route path="*" element={<Home onOpenQuoteModal={handleOpenModal} />} />
+        </Routes>
 
-      {/* Section Light Divider 1 */}
-      <SectionDivider />
+        {/* Global Footer */}
+        <Footer />
 
-      {/* Service Pillars (Diseño Integral & Gestión Técnica) */}
-      <ServicePillars onOpenQuoteModal={() => setIsQuoteModalOpen(true)} />
-
-      {/* Section Light Divider 2 */}
-      <SectionDivider />
-
-      {/* Portfolio Gallery */}
-      <ProjectsGallery onOpenQuoteModal={() => setIsQuoteModalOpen(true)} />
-
-      {/* Section Light Divider 3 */}
-      <SectionDivider />
-
-      {/* FAQ Accordion */}
-      <FaqSection />
-
-      {/* Section Light Divider 4 */}
-      <SectionDivider />
-
-      {/* Contact & Conversion Form */}
-      <ContactSection />
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Interactive Budget Quote Estimator Modal */}
-      <QuoteEstimatorModal 
-        isOpen={isQuoteModalOpen} 
-        onClose={() => setIsQuoteModalOpen(false)} 
-      />
-    </div>
+        {/* Interactive Budget Quote Estimator Modal */}
+        <QuoteEstimatorModal 
+          isOpen={isQuoteModalOpen} 
+          onClose={handleCloseModal} 
+        />
+      </div>
+    </BrowserRouter>
   );
 }

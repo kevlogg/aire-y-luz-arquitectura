@@ -156,10 +156,10 @@ export default function ContactSection() {
                     value={formData.consultaType}
                     onChange={(e) => setFormData({ ...formData, consultaType: e.target.value })}
                   >
-                    <option value="Reforma Residencial / PH">Reforma Residencial / Refacción de PH</option>
-                    <option value="Local Comercial">Diseño de Local Comercial / Gastro</option>
-                    <option value="Ley 257 / Gas">Ley 257 (Fachadas) / Adecuación Metrogas</option>
-                    <option value="Otro">Otro Asesoramiento Técnico</option>
+                    <option value="Remodelación / Vivienda particular">Remodelación / Vivienda particular</option>
+                    <option value="Consorcio (Ley 257 / Metrogas)">Consorcio (Ley 257 / Metrogas)</option>
+                    <option value="Local Comercial / Oficina">Local Comercial / Oficina</option>
+                    <option value="Otra consulta técnica">Otra consulta técnica</option>
                   </select>
                 </div>
 
