@@ -65,22 +65,24 @@ export default function Hero({ onOpenQuoteModal }) {
           </div>
         </div>
 
-        {/* Hero Right Visual */}
+        {/* Hero Right Visual with Light Beam Border Animation */}
         <div className="hero-visual">
-          <img 
-            src="/assets/hero_ph_remodel.png" 
-            alt="Refacción integral de PH luminoso en Villa Crespo por Aire y Luz Arquitectura" 
-            className="hero-image"
-          />
+          <div className="hero-visual-inner">
+            <img 
+              src="/assets/hero_ph_remodel.png" 
+              alt="Refacción integral de PH luminoso en Villa Crespo por Aire y Luz Arquitectura" 
+              className="hero-image"
+            />
 
-          {/* Floating Badge Overlay */}
-          <div className="hero-badge-overlay">
-            <div className="hero-badge-icon">
-              <Building2 size={22} />
-            </div>
-            <div>
-              <div className="hero-badge-title">PH Gurruchaga — Villa Crespo</div>
-              <div className="hero-badge-desc">Recuperación de luz natural & microcemento</div>
+            {/* Floating Badge Overlay */}
+            <div className="hero-badge-overlay">
+              <div className="hero-badge-icon">
+                <Building2 size={22} />
+              </div>
+              <div>
+                <div className="hero-badge-title">PH Gurruchaga — Villa Crespo</div>
+                <div className="hero-badge-desc">Recuperación de luz natural & microcemento</div>
+              </div>
             </div>
           </div>
         </div>
