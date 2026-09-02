@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Compass, CheckCircle2, ArrowRight, Sun, HardHat, Store } from 'lucide-react';
 
 export default function ServicePillars() {
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setInView(true);
+        }
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="servicios" className="pillars-section section-spacing">
+    <section id="servicios" className="pillars-section section-spacing" ref={sectionRef}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
@@ -21,7 +45,7 @@ export default function ServicePillars() {
         {/* 3 Pillar Cards Grid */}
         <div className="pillars-grid-3">
           {/* Pilar 1: Remodelaciones y PHs */}
-          <div className="pillar-card-beam-wrapper orange-beam">
+          <div className={`pillar-card-beam-wrapper orange-beam ${inView ? 'in-view' : ''}`}>
             <div className="pillar-card">
               <div>
                 <div className="pillar-header">
@@ -63,7 +87,7 @@ export default function ServicePillars() {
           </div>
 
           {/* Pilar 2: Consorcios, Ley 257 y Metrogas */}
-          <div className="pillar-card-beam-wrapper cyan-beam" id="consorcios">
+          <div className={`pillar-card-beam-wrapper cyan-beam ${inView ? 'in-view' : ''}`} id="consorcios">
             <div className="pillar-card">
               <div>
                 <div className="pillar-header">
@@ -105,7 +129,7 @@ export default function ServicePillars() {
           </div>
 
           {/* Pilar 3: Locales Comerciales y Oficinas */}
-          <div className="pillar-card-beam-wrapper dark-beam">
+          <div className={`pillar-card-beam-wrapper dark-beam ${inView ? 'in-view' : ''}`}>
             <div className="pillar-card">
               <div>
                 <div className="pillar-header">

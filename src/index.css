@@ -693,7 +693,7 @@ button {
   box-shadow: var(--shadow-card);
 }
 
-.pillar-card-beam-wrapper.orange-beam::before {
+.pillar-card-beam-wrapper.orange-beam.in-view::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -712,7 +712,7 @@ button {
   z-index: 1;
 }
 
-.pillar-card-beam-wrapper.cyan-beam::before {
+.pillar-card-beam-wrapper.cyan-beam.in-view::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -731,7 +731,7 @@ button {
   z-index: 1;
 }
 
-.pillar-card-beam-wrapper.dark-beam::before {
+.pillar-card-beam-wrapper.dark-beam.in-view::before {
   content: '';
   position: absolute;
   top: -50%;
