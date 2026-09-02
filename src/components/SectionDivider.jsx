@@ -13,8 +13,8 @@ export default function SectionDivider() {
         }
       },
       {
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0,
+        rootMargin: '-30% 0px -30% 0px' // Triggers strictly when scrolling into the middle region of the section
       }
     );
 
