@@ -37,8 +37,8 @@ export default function ContactSection() {
           {/* Contact Information Column */}
           <div className="contact-info-box">
             <div>
-              <div className="badge-tag" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF', borderColor: 'var(--border-dark)' }}>
-                <ShieldCheck size={14} style={{ color: 'var(--accent-terracotta)' }} />
+              <div className="badge-tag" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF', borderColor: 'var(--border-dark)', borderLeft: '3px solid var(--brand-orange)' }}>
+                <ShieldCheck size={14} style={{ color: 'var(--brand-orange)' }} />
                 <span>Atención Profesional en Villa Crespo</span>
               </div>
               <h2 className="section-title" style={{ fontSize: '2.5rem', color: '#FFFFFF', marginTop: '1rem' }}>

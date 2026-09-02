@@ -190,31 +190,43 @@ export default function ProjectsGallery({ onOpenQuoteModal }) {
 
         {/* Projects Cards Grid */}
         <div className="portfolio-grid">
-          {filteredProjects.map((project) => (
-            <div 
-              key={project.id} 
-              className="project-card"
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="project-image-wrapper">
-                <img src={project.image} alt={project.title} className="project-image" />
-                <span className="project-category-badge">{project.typeLabel}</span>
-              </div>
-              <div className="project-body">
-                <div className="project-location">
-                  <MapPin size={12} />
-                  <span>{project.location}</span>
-                </div>
-                <h3 className="project-title">{project.title}</h3>
-                <div className="project-meta">
-                  <span>{project.specs.surface} — {project.specs.timeframe}</span>
-                  <span className="project-link-action">
-                    Ver Obra <ArrowUpRight size={14} />
+          {filteredProjects.map((project) => {
+            const isOrangeCategory = project.category === 'phs' || project.category === 'comercial';
+            const isCyanCategory = project.category === 'consorcios';
+            const badgeBg = isOrangeCategory 
+              ? 'var(--brand-orange)' 
+              : isCyanCategory 
+              ? 'var(--brand-cyan)' 
+              : 'rgba(18, 18, 18, 0.82)';
+
+            return (
+              <div 
+                key={project.id} 
+                className="project-card"
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className="project-image-wrapper">
+                  <img src={project.image} alt={project.title} className="project-image" />
+                  <span className="project-category-badge" style={{ backgroundColor: badgeBg }}>
+                    {project.typeLabel}
                   </span>
                 </div>
+                <div className="project-body">
+                  <div className="project-location" style={{ color: isCyanCategory ? 'var(--brand-cyan)' : 'var(--brand-orange)' }}>
+                    <MapPin size={12} />
+                    <span>{project.location}</span>
+                  </div>
+                  <h3 className="project-title">{project.title}</h3>
+                  <div className="project-meta">
+                    <span>{project.specs.surface} — {project.specs.timeframe}</span>
+                    <span className="project-link-action">
+                      Ver Obra <ArrowUpRight size={14} />
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

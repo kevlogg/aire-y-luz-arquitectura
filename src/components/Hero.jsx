@@ -19,14 +19,14 @@ export default function Hero({ onOpenQuoteModal }) {
       <div className="container hero-grid">
         {/* Hero Left Content */}
         <div className="hero-content">
-          <div className="badge-tag">
-            <ShieldCheck size={15} style={{ color: 'var(--accent-terracotta)' }} />
+          <div className="badge-tag" style={{ borderLeft: '3px solid var(--brand-orange)' }}>
+            <ShieldCheck size={15} style={{ color: 'var(--brand-orange)' }} />
             <span>Estudio Matriculado CPAU / CPA — CABA</span>
           </div>
 
           <h1 className="hero-title">
             Diseño que potencia tu espacio.{' '}
-            <span style={{ fontWeight: 300, color: '#444444' }}>
+            <span className="gradient-brand-text">
               Soluciones técnicas con respaldo profesional.
             </span>
           </h1>

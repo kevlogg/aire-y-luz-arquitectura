@@ -19,14 +19,14 @@ export default function ServicePillars({ onOpenQuoteModal }) {
 
         {/* Dual Pillar Cards */}
         <div className="pillars-grid">
-          {/* Pilar A Card */}
-          <div className="pillar-card">
+          {/* Pilar A Card - Brand Orange Accent */}
+          <div className="pillar-card" style={{ borderTop: '4px solid var(--brand-orange)' }}>
             <div>
               <div className="pillar-header">
-                <div className="pillar-icon-box">
+                <div className="pillar-icon-box" style={{ background: 'var(--brand-orange-light)', color: 'var(--brand-orange)', borderColor: 'rgba(238, 116, 39, 0.25)' }}>
                   <Sun size={28} />
                 </div>
-                <span className="pillar-number">01</span>
+                <span className="pillar-number" style={{ color: 'rgba(238, 116, 39, 0.2)' }}>01</span>
               </div>
 
               <h3 className="pillar-title">Diseño & Remodelación Integral</h3>
@@ -37,26 +37,26 @@ export default function ServicePillars({ onOpenQuoteModal }) {
 
               <ul className="pillar-features-list">
                 <li className="pillar-feature-item">
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--brand-orange)' }} />
                   <span>Refacción integral de PHs: valorización de patios y tragaluces.</span>
                 </li>
                 <li className="pillar-feature-item">
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--brand-orange)' }} />
                   <span>Proyectos de interiorismo y redistribución de plantas habitables.</span>
                 </li>
                 <li className="pillar-feature-item">
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--brand-orange)' }} />
                   <span>Diseño y habilitación de locales comerciales y espacios gastronómicos.</span>
                 </li>
                 <li className="pillar-feature-item">
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--brand-orange)' }} />
                   <span>Dirección ejecutiva de obra con cómputo cerrado (sin sorpresas de costos).</span>
                 </li>
               </ul>
             </div>
 
             <button 
-              className="btn-secondary"
+              className="btn-accent"
               style={{ width: '100%' }}
               onClick={onOpenQuoteModal}
             >
@@ -65,14 +65,14 @@ export default function ServicePillars({ onOpenQuoteModal }) {
             </button>
           </div>
 
-          {/* Pilar B Card */}
-          <div className="pillar-card accent-card" id="consorcios">
+          {/* Pilar B Card - Brand Cyan Accent */}
+          <div className="pillar-card" id="consorcios" style={{ borderTop: '4px solid var(--brand-cyan)' }}>
             <div>
               <div className="pillar-header">
-                <div className="pillar-icon-box">
+                <div className="pillar-icon-box" style={{ background: 'var(--brand-cyan-light)', color: 'var(--brand-cyan)', borderColor: 'rgba(40, 165, 214, 0.25)' }}>
                   <HardHat size={28} />
                 </div>
-                <span className="pillar-number">02</span>
+                <span className="pillar-number" style={{ color: 'rgba(40, 165, 214, 0.2)' }}>02</span>
               </div>
 
               <h3 className="pillar-title">Gestión Técnica & Consorcios</h3>
@@ -83,26 +83,26 @@ export default function ServicePillars({ onOpenQuoteModal }) {
 
               <ul className="pillar-features-list">
                 <li className="pillar-feature-item">
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--brand-cyan)' }} />
                   <span>Ley 257 (CABA): Informe técnico periódico sobre estado de fachadas y balcones.</span>
                 </li>
                 <li className="pillar-feature-item">
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--brand-cyan)' }} />
                   <span>Proyectos y adecuación de instalaciones de gas (Metrogas / reconexiones).</span>
                 </li>
                 <li className="pillar-feature-item">
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--brand-cyan)' }} />
                   <span>Inspecciones de patologías constructivas y pruebas de hermeticidad.</span>
                 </li>
                 <li className="pillar-feature-item">
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--brand-cyan)' }} />
                   <span>Certificaciones e informes periciales con firma de arquitecto matriculado.</span>
                 </li>
               </ul>
             </div>
 
             <button 
-              className="btn-accent"
+              className="btn-cyan"
               style={{ width: '100%' }}
               onClick={onOpenQuoteModal}
             >

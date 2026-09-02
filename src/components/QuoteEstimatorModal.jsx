@@ -61,8 +61,8 @@ Muchas gracias.`;
         </button>
 
         <div className="modal-body" style={{ padding: '3rem 2.5rem' }}>
-          <div className="badge-tag" style={{ marginBottom: '1rem' }}>
-            <Sparkles size={14} style={{ color: 'var(--accent-terracotta)' }} />
+          <div className="badge-tag" style={{ marginBottom: '1rem', borderLeft: '3px solid var(--brand-orange)' }}>
+            <Sparkles size={14} style={{ color: 'var(--brand-orange)' }} />
             <span>Estimador Interactivo de Proyecto</span>
           </div>
 
@@ -82,7 +82,7 @@ Muchas gracias.`;
                 <button 
                   type="button"
                   className={`filter-btn ${serviceType === 'ph' ? 'active' : ''}`}
-                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem' }}
+                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem', backgroundColor: serviceType === 'ph' ? 'var(--brand-orange)' : '' }}
                   onClick={() => setServiceType('ph')}
                 >
                   Refacción PH
@@ -90,7 +90,7 @@ Muchas gracias.`;
                 <button 
                   type="button"
                   className={`filter-btn ${serviceType === 'depto' ? 'active' : ''}`}
-                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem' }}
+                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem', backgroundColor: serviceType === 'depto' ? 'var(--brand-orange)' : '' }}
                   onClick={() => setServiceType('depto')}
                 >
                   Depto / Vivienda
@@ -98,7 +98,7 @@ Muchas gracias.`;
                 <button 
                   type="button"
                   className={`filter-btn ${serviceType === 'comercial' ? 'active' : ''}`}
-                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem' }}
+                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem', backgroundColor: serviceType === 'comercial' ? 'var(--brand-orange)' : '' }}
                   onClick={() => setServiceType('comercial')}
                 >
                   Local Comercial
@@ -106,7 +106,7 @@ Muchas gracias.`;
                 <button 
                   type="button"
                   className={`filter-btn ${serviceType === 'ley257' ? 'active' : ''}`}
-                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem' }}
+                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem', backgroundColor: serviceType === 'ley257' ? 'var(--brand-cyan)' : '', borderColor: serviceType === 'ley257' ? 'var(--brand-cyan)' : '' }}
                   onClick={() => setServiceType('ley257')}
                 >
                   Ley 257 Fachada
@@ -114,7 +114,7 @@ Muchas gracias.`;
                 <button 
                   type="button"
                   className={`filter-btn ${serviceType === 'metrogas' ? 'active' : ''}`}
-                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem' }}
+                  style={{ borderRadius: 'var(--radius-sm)', textAlign: 'center', padding: '0.85rem', backgroundColor: serviceType === 'metrogas' ? 'var(--brand-cyan)' : '', borderColor: serviceType === 'metrogas' ? 'var(--brand-cyan)' : '' }}
                   onClick={() => setServiceType('metrogas')}
                 >
                   Gas Metrogas
@@ -126,7 +126,7 @@ Muchas gracias.`;
             <div className="form-group" style={{ gridColumn: '1 / -1' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
                 <label className="form-label" style={{ color: 'var(--text-main)', margin: 0 }}>2. Superficie Estimada</label>
-                <span style={{ fontFamily: 'var(--font-title)', fontWeight: 700, fontSize: '1.1rem', color: 'var(--accent-terracotta)' }}>
+                <span style={{ fontFamily: 'var(--font-title)', fontWeight: 700, fontSize: '1.1rem', color: serviceType === 'ley257' || serviceType === 'metrogas' ? 'var(--brand-cyan)' : 'var(--brand-orange)' }}>
                   {surface} m²
                 </span>
               </div>
@@ -137,7 +137,7 @@ Muchas gracias.`;
                 step="5"
                 value={surface} 
                 onChange={(e) => setSurface(Number(e.target.value))}
-                style={{ width: '100%', accentColor: 'var(--accent-terracotta)', cursor: 'pointer' }}
+                style={{ width: '100%', accentColor: serviceType === 'ley257' || serviceType === 'metrogas' ? 'var(--brand-cyan)' : 'var(--brand-orange)', cursor: 'pointer' }}
               />
             </div>
 
