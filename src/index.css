@@ -692,61 +692,67 @@ button {
   box-shadow: var(--shadow-card);
 }
 
-.pillar-card-beam-wrapper.orange-beam.in-view::before {
+.pillar-card-beam-wrapper::before {
   content: '';
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 260deg,
-    var(--brand-orange) 310deg,
-    #FFA842 335deg,
-    transparent 360deg
-  );
-  animation: cardBeamRotate 3.2s ease-in-out 1 forwards;
+  opacity: 0;
+  transition: opacity 0.4s ease;
   z-index: 1;
+  pointer-events: none;
 }
 
-.pillar-card-beam-wrapper.cyan-beam.in-view::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+.pillar-card-beam-wrapper.orange-beam:hover::before,
+.pillar-card-beam-wrapper.orange-beam:active::before,
+.pillar-card-beam-wrapper.orange-beam:focus-within::before {
+  opacity: 1;
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    transparent 260deg,
-    var(--brand-cyan) 310deg,
-    #5CD6FF 335deg,
+    transparent 240deg,
+    var(--brand-orange) 300deg,
+    #FFA842 330deg,
     transparent 360deg
   );
-  animation: cardBeamRotate 3.2s ease-in-out 1 forwards;
-  z-index: 1;
+  animation: cardBeamRotateHover 3.2s linear infinite;
 }
 
-.pillar-card-beam-wrapper.dark-beam.in-view::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+.pillar-card-beam-wrapper.cyan-beam:hover::before,
+.pillar-card-beam-wrapper.cyan-beam:active::before,
+.pillar-card-beam-wrapper.cyan-beam:focus-within::before {
+  opacity: 1;
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    transparent 260deg,
-    var(--text-main) 310deg,
-    #555555 335deg,
+    transparent 240deg,
+    var(--brand-cyan) 300deg,
+    #5CD6FF 330deg,
     transparent 360deg
   );
-  animation: cardBeamRotate 3.2s ease-in-out 1 forwards;
-  z-index: 1;
+  animation: cardBeamRotateHover 3.2s linear infinite;
+}
+
+.pillar-card-beam-wrapper.dark-beam:hover::before,
+.pillar-card-beam-wrapper.dark-beam:active::before,
+.pillar-card-beam-wrapper.dark-beam:focus-within::before {
+  opacity: 1;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 240deg,
+    var(--text-main) 300deg,
+    #555555 330deg,
+    transparent 360deg
+  );
+  animation: cardBeamRotateHover 3.2s linear infinite;
+}
+
+@keyframes cardBeamRotateHover {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .pillar-card-beam-wrapper .pillar-card {
