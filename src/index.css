@@ -1346,23 +1346,22 @@ button {
 .footer-logo-badge {
   display: inline-flex;
   align-items: center;
-  background: #FFFFFF;
-  padding: 0.6rem 1.1rem;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  margin-bottom: 0.25rem;
-  transition: transform 0.3s ease;
-}
-
-.footer-logo-badge:hover {
-  transform: scale(1.03);
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0.5rem;
 }
 
 .footer-logo-img {
-  height: 48px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   display: block;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.footer-logo-badge:hover .footer-logo-img {
+  transform: scale(1.03);
 }
 
 .footer-grid {
