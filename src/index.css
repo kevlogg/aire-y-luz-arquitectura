@@ -1344,6 +1344,29 @@ button {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.footer-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.25rem;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo-badge:hover {
+  transform: scale(1.03);
+}
+
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  display: block;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1.2fr 1.5fr;

@@ -9,12 +9,11 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand Info */}
           <div className="footer-brand">
-            <Link to="/" className="logo-brand" title="Aire y Luz Arquitectura — Inicio">
+            <Link to="/" className="footer-logo-badge" title="Aire y Luz Arquitectura — Inicio">
               <img 
                 src="/logo.png" 
                 alt="Aire y Luz Arquitectura Logo" 
-                className="brand-logo-img" 
-                style={{ filter: 'brightness(1.1)', mixBlendMode: 'multiply' }} 
+                className="footer-logo-img" 
               />
             </Link>
             <p className="footer-desc">
