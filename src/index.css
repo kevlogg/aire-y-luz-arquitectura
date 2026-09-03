@@ -177,6 +177,7 @@ button {
 
 .logo-split-left {
   animation: logoAssembleLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
+  margin-right: -48px;
   position: relative;
   z-index: 2;
 }
@@ -190,21 +191,21 @@ button {
 /* Hover re-trigger */
 .animated-split-logo-link:hover .logo-split-left {
   animation: logoAssembleLeftHover 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
-  filter: drop-shadow(0 0 10px rgba(238, 116, 39, 0.5));
+  filter: drop-shadow(0 0 12px rgba(238, 116, 39, 0.6));
 }
 
 .animated-split-logo-link:hover .logo-split-right {
   animation: logoAssembleRightHover 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
-  filter: drop-shadow(0 0 10px rgba(40, 165, 214, 0.5));
+  filter: drop-shadow(0 0 12px rgba(40, 165, 214, 0.6));
 }
 
 @keyframes logoAssembleLeft {
   0% {
-    transform: translateX(-40px) scale(0.85);
+    transform: translateX(-70px) scale(0.85);
     opacity: 0;
   }
-  60% {
-    transform: translateX(4px) scale(1.03);
+  65% {
+    transform: translateX(6px) scale(1.03);
     opacity: 1;
   }
   100% {
@@ -215,11 +216,11 @@ button {
 
 @keyframes logoAssembleRight {
   0% {
-    transform: translateX(40px) scale(0.85);
+    transform: translateX(70px) scale(0.85);
     opacity: 0;
   }
-  60% {
-    transform: translateX(-4px) scale(1.03);
+  65% {
+    transform: translateX(-6px) scale(1.03);
     opacity: 1;
   }
   100% {
@@ -230,10 +231,10 @@ button {
 
 @keyframes logoAssembleLeftHover {
   0% {
-    transform: translateX(-25px);
+    transform: translateX(-30px);
   }
   65% {
-    transform: translateX(3px);
+    transform: translateX(4px);
   }
   100% {
     transform: translateX(0);
@@ -242,10 +243,10 @@ button {
 
 @keyframes logoAssembleRightHover {
   0% {
-    transform: translateX(25px);
+    transform: translateX(30px);
   }
   65% {
-    transform: translateX(-3px);
+    transform: translateX(-4px);
   }
   100% {
     transform: translateX(0);
